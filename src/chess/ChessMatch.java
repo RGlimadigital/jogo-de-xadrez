@@ -25,6 +25,13 @@ public class ChessMatch {
 		return mat;
 	}
 	
+	
+	public boolean[][] possibleMovies(ChessPosition sourcePositio){
+		Position position = sourcePositio.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
+	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		
 		Position source = sourcePosition.toPosition();
@@ -32,6 +39,7 @@ public class ChessMatch {
 		
 		
 		validateSourcePosition(source);
+		validateTargetPosition(source,target);
 		
 		
 		Piece capturedPiece = makeMove(source, target);
@@ -63,6 +71,12 @@ public class ChessMatch {
 		
 		if(!board.piece(position).isThereAnyPossibleMove()) {
 			throw new ChessException("Nao existem movimentos possiveis para a peca escolhida");
+		}
+	}
+	
+	private void validateTargetPosition(Position source, Position target) {
+		if(!board.piece(source).possibleMove(target)) {
+			throw new ChessException("A peca escolhida nao pode se mover para a posicao de destino");
 		}
 	}
 	
