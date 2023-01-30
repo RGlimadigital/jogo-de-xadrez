@@ -180,7 +180,7 @@ public class ChessMatch {
 							
 					 ChessPiece rook = (ChessPiece)board.removePiece(targetT);
 					 board.placePiece(rook, sourceT);
-					 rook.increaseMoveCount();
+					 rook.decreaseMoveCount();
 					}
 		
 	}
