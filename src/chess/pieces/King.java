@@ -1,5 +1,7 @@
 package chess.pieces;
 
+import java.io.Console;
+
 import boardgame.Board;
 import boardgame.Position;
 import chess.ChessMatch;
@@ -28,6 +30,7 @@ public class King extends ChessPiece {
 	}
 	
 	private boolean testRookCasting(Position position) {
+		
 		ChessPiece piece = (ChessPiece)getBoard().piece(position);
 		return piece !=null && piece instanceof Rook && piece.getColor() == getColor() && piece.getMoveCount() == 0;
 	}
@@ -36,6 +39,7 @@ public class King extends ChessPiece {
 	@Override
 	public boolean[][] possibleMoves() {
 		boolean [][] mat = new boolean[getBoard().getRows()][getBoard().getColumns()];
+		
 		
 		
 		Position p = new Position(0,0);
@@ -104,6 +108,7 @@ public class King extends ChessPiece {
 			
 			//Queen side rook
 			Position pt2 = new Position(position.getRow(), position.getColumn() - 4);
+			
 			if(testRookCasting(pt2)) {
 				Position p3 = new Position(position.getRow(), position.getColumn() - 1);
 				Position p4 = new Position(position.getRow(), position.getColumn() - 2);

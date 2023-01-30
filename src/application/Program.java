@@ -41,6 +41,9 @@ public class Program {
 				
 				
 				ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
+				System.out.println("Entrou:  " + source);
+				
+
 				
 				if(capturedPiece != null) {
 					captured.add(capturedPiece);

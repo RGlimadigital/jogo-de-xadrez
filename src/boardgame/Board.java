@@ -42,7 +42,10 @@ public class Board {
 	
 	
 	public Piece piece(Position position) {
+		
 		if(!positionExists(position)) {
+			
+			
 			throw new BoardException("Essa posicao nao existe");
 		}
 		return pieces[position.getRow()][position.getColumn()];
@@ -63,11 +66,13 @@ public class Board {
 	}
 	
 	public boolean positionExists(Position position) {
+		
 		return positionExists(position.getRow(), position.getColumn());
 	}
 	
 	public Piece removePiece(Position position) {
 		if(!positionExists(position.getRow(), position.getColumn())) {
+			
 			throw new BoardException("Essa posicao nao existe");
 		}
 		if(piece(position) == null) {
