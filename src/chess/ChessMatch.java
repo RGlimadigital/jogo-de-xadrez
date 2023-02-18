@@ -1,11 +1,8 @@
 package chess;
 
-import java.security.InvalidParameterException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
-
-import javax.management.loading.PrivateClassLoader;
 
 import boardgame.Board;
 import boardgame.Piece;
@@ -153,7 +150,7 @@ public class ChessMatch {
 		 }
 		 
 		 if(!type.equals("B") && !type.equals("N") && !type.equals("R") && !type.equals("Q")) {
-			 throw new InvalidParameterException("Invalid Type for Promotion");
+			 return promoted;
 		 }
 		 
 		 Position pos = promoted.getChessPosition().toPosition();
